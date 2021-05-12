@@ -14,14 +14,14 @@ namespace Monopoly
         public void GetPlayersListReturnCorrectList()
         {
             string[] players = new string[]{ "Peter","Ekaterina","Alexander" };
-            Tuple<string, int>[] expectedPlayers = new Tuple<string, int>[]
+            MonopolyPlayer[] expectedPlayers = new MonopolyPlayer[]
             {
-                new Tuple<string, int>("Peter",6000),
-                new Tuple<string, int>("Ekaterina",6000),
-                new Tuple<string, int>("Alexander",6000)
+                new MonopolyPlayer("Peter"),
+                new MonopolyPlayer("Ekaterina"),
+                new MonopolyPlayer("Alexander")
             };
             Monopoly monopoly = new Monopoly(players,3);
-            Tuple<string, int>[] actualPlayers = monopoly.GetPlayersList().ToArray();
+            MonopolyPlayer[] actualPlayers = monopoly.GetPlayersList().ToArray();
 
             Assert.AreEqual(expectedPlayers, actualPlayers);
         }
@@ -51,8 +51,8 @@ namespace Monopoly
             Monopoly monopoly = new Monopoly(players, 3);
             Tuple<string, Monopoly.Type, int, bool> x = monopoly.GetFieldByName("Ford");
             monopoly.Buy(1, x);
-            Tuple<string,int> actualPlayer = monopoly.GetPlayerInfo(1);
-            Tuple<string, int> expectedPlayer = new Tuple<string, int>("Peter", 5500);
+            MonopolyPlayer actualPlayer = monopoly.GetPlayerInfo(1);
+            MonopolyPlayer expectedPlayer = new MonopolyPlayer("Peter", 5500);
             Assert.AreEqual(expectedPlayer, actualPlayer);
             Tuple<string, Monopoly.Type, int, bool> actualField = monopoly.GetFieldByName("Ford");
             Assert.AreEqual(1, actualField.Item3);
@@ -66,10 +66,10 @@ namespace Monopoly
             monopoly.Buy(1, x);
             x = monopoly.GetFieldByName("Ford");
             monopoly.Renta(2, x);
-            Tuple<string, int> player1 = monopoly.GetPlayerInfo(1);
-            Assert.AreEqual(5750, player1.Item2);
-            Tuple<string, int> player2 = monopoly.GetPlayerInfo(2);
-            Assert.AreEqual(5750, player2.Item2);
+            MonopolyPlayer player1 = monopoly.GetPlayerInfo(1);
+            Assert.AreEqual(5750, player1.Amount);
+            MonopolyPlayer player2 = monopoly.GetPlayerInfo(2);
+            Assert.AreEqual(5750, player2.Amount);
         }
     }
 }
