@@ -47,11 +47,7 @@ namespace Monopoly
         internal bool Buy(int buyerPlayerIndex, AMonopolyField monopolyField)
         {
             var buyerPlayer = GetPlayerInfo(buyerPlayerIndex);
-
-            if (!monopolyField.SellTo( buyerPlayer ))
-                return false;
-
-             return true;
+            return monopolyField.SellTo( buyerPlayer );
         }
 
         internal MonopolyPlayer GetPlayerInfo (int playerIndex)
