@@ -41,7 +41,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Monopoly.cs" />
-    <Compile Include="TestClass.cs" />
+    <Compile Include="MonopolyFields\AMonopolyField.cs" />
+    <Compile Include="MonopolyFields\AutoMonopolyField.cs" />
+    <Compile Include="MonopolyFields\BankMonopolyField.cs" />
+    <Compile Include="MonopolyFields\ClotherMonopolyField.cs" />
+    <Compile Include="MonopolyFields\FoodMonopolyField.cs" />
+    <Compile Include="MonopolyFields\PrisonMonopolyField.cs" />
+    <Compile Include="MonopolyFields\TravelMonopolyField.cs" />
+    <Compile Include="MonopolyPlayer.cs" />
+    <Compile Include="Tests\MonopolyPlayerTests.cs" />
+    <Compile Include="Tests\TestClass.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
